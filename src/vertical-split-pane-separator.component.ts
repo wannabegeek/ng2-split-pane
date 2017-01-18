@@ -28,7 +28,8 @@ import { SplitSeparatorComponent } from './split-pane-separator.component'
       <div class="handle">
       </div>
     </div>
-  `
+  `,
+  host: {'style': 'height: 100%'}
 })
 export class VerticalSplitSeparatorComponent extends SplitSeparatorComponent {
 }

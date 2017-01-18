@@ -8,7 +8,6 @@ import { PositionService } from './position.service'
     .outer {
       height: 100%;
       width: 100%;
-      display: block;
     }
 
     .left-component {

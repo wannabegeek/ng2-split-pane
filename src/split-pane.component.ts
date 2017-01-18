@@ -39,12 +39,12 @@ export abstract class SplitPaneComponent {
   protected applySizeChange(size: number) {
     if (size != 0) {
       let primarySize = this.checkValidBounds(size, this.primaryMinSize, this.getAvailableSize() - this.secondaryMinSize);
-      console.debug("current: " + this.getPrimarySize()
-                + " want to be: " + size
-                + " min: " + this.primaryMinSize
-                + " max: " + (this.getTotalSize() - this.secondaryMinSize)
-                + " constrained to: " + primarySize
-              );
+      // console.debug("current: " + this.getPrimarySize()
+      //           + " want to be: " + size
+      //           + " min: " + this.primaryMinSize
+      //           + " max: " + (this.getTotalSize() - this.secondaryMinSize)
+      //           + " constrained to: " + primarySize
+      //         );
       this.dividerPosition(primarySize);
     }
   }
