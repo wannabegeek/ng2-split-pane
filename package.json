@@ -1,0 +1,45 @@
+{
+  "name": "ng2-split-pane",
+  "version": "1.0.0",
+  "description": "A simple resizable split pane Angular 2 library",
+  "main": "split-pane.module.js",
+  "scripts": {
+    "watch": "tsc -p src -w",
+    "build": "rm -rf lib && tsc -p src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wannabegeek/ng2-split-pane.git"
+  },
+  "keywords": [
+    "Angular",
+    "2",
+    "Library",
+    "Split",
+    "Split View",
+    "Split Pane"
+  ],
+  "author": {
+    "name": "Tom Fewster",
+    "email": "tom@wannabegeek.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wannabegeek/ng2-split-pane/issues"
+  },
+  "homepage": "https://github.com/wannabegeek/ng2-split-pane/#readme",
+  "devDependencies": {
+    "typescript": "~2.0.3"
+  },
+  "dependencies": {
+    "@angular/common": "^2.3.1",
+    "@angular/compiler": "^2.3.1",
+    "@angular/core": "^2.3.1",
+    "@angular/forms": "^2.3.1",
+    "@angular/http": "^2.3.1",
+    "@angular/platform-browser": "^2.3.1",
+    "@angular/platform-browser-dynamic": "^2.3.1",
+    "rxjs": "^5.0.1",
+    "zone.js": "^0.7.2"
+  }
+}
