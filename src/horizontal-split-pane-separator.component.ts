@@ -4,13 +4,13 @@ import { SplitSeparatorComponent } from './split-pane-separator.component'
 @Component({
   selector: 'horizontal-split-separator',
   styles: [`
-    .pane-splitter {
+    :host {
       height: 7px;
       background-color: #fff;
       border-top: 1px solid #ddd;
       cursor: ns-resize;
     }
-    .pane-splitter:hover {
+    :host:hover {
       background-color: #fafafa;
     }
     .handle {
@@ -21,10 +21,7 @@ import { SplitSeparatorComponent } from './split-pane-separator.component'
     }
   `],
   template: `
-    <div class="pane-splitter">
-      <div class="handle">
-      </div>
-    </div>
+    <div class="handle"></div>
   `
 })
 export class HorizontalSplitSeparatorComponent extends SplitSeparatorComponent {
