@@ -1,6 +1,6 @@
 {
   "name": "ng2-split-pane",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple resizable split pane Angular 2 library",
   "main": "split-pane.module.js",
   "scripts": {
