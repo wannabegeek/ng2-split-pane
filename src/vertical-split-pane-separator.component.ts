@@ -4,19 +4,18 @@ import { SplitSeparatorComponent } from './split-pane-separator.component'
 @Component({
   selector: 'vertical-split-separator',
   styles: [`
-    .pane-splitter {
+    :host {
       width: 7px;
-      height: 100%;
       background-color: #fff;
       border-left: 1px solid #ddd;
       cursor: ew-resize;
       position: relative;
     }
-    .pane-splitter:hover {
+    :host:hover {
       background-color: #fafafa;
     }
 
-    .pane-splitter .handle {
+    .handle {
       width: 100%;
       height: 35px;
       background-color: #eee;
@@ -25,12 +24,8 @@ import { SplitSeparatorComponent } from './split-pane-separator.component'
     }
   `],
   template: `
-    <div class="pane-splitter">
-      <div class="handle">
-      </div>
-    </div>
-  `,
-  host: {'style': 'height: 100%'}
+    <div class="handle"></div>
+  `
 })
 export class VerticalSplitSeparatorComponent extends SplitSeparatorComponent {
 }
