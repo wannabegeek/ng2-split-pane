@@ -12,6 +12,7 @@ export abstract class SplitPaneComponent {
   @Input('primary-component-minsize') protected primaryMinSize: number = 0;
   @Input('secondary-component-minsize') protected secondaryMinSize: number = 0;
   @Input('local-storage-key') private localStorageKey: string = null;
+  @Output('on-change') private notifySizeDidChange: EventEmitter<any> = new EventEmitter<any>();
 
   private dividerSize: number = 8.0;
   protected isResizing: boolean = false;
@@ -46,13 +47,12 @@ export abstract class SplitPaneComponent {
       //           + " constrained to: " + primarySize
       //         );
       this.dividerPosition(primarySize);
+      this.notifySizeDidChange.emit({'primary' : this.getPrimarySize(), 'secondary' : this.getSecondarySize()});
     }
   }
 
   private notifyWillChangeSize(resizing: boolean) {
     this.isResizing = resizing;
-    this.primaryComponent.nativeElement.style.cursor = "ns-resize";
-    this.secondaryComponent.nativeElement.style.cursor = "ns-resize";
   }
 
   private checkValidBounds(newSize: number, minSize: number, maxSize: number): number {

@@ -5,25 +5,22 @@ import { PositionService } from './position.service'
 @Component({
   selector: 'vertical-split-pane',
   styles: [`
-    .outer {
+    .v-outer {
       height: 100%;
       width: 100%;
+      display: flex;
     }
 
     .left-component {
       width: calc(50% - 4px);
-      height: 100%;
-      float: left;
     }
 
     .right-component {
       width: calc(50% - 4px);
-      height: 100%;
-      float: left;
     }
   `],
   template: `
-  <div #outer class="outer">
+  <div #outer class="v-outer">
     <div #primaryComponent class="left-component">
       <ng-content select=".split-pane-content-primary"></ng-content>
     </div>
@@ -33,7 +30,6 @@ import { PositionService } from './position.service'
     </div>
   </div>
   `,
-  host: {'style': 'height: 100%'}
 })
 export class VerticalSplitPaneComponent extends SplitPaneComponent {
 

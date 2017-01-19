@@ -5,21 +5,22 @@ import { SplitSeparatorComponent } from './split-pane-separator.component'
   selector: 'vertical-split-separator',
   styles: [`
     .pane-splitter {
-      height: 100%;
       width: 7px;
+      height: 100%;
       background-color: #fff;
       border-left: 1px solid #ddd;
       cursor: ew-resize;
-      float: left;
+      position: relative;
     }
     .pane-splitter:hover {
       background-color: #fafafa;
     }
-    .handle {
+
+    .pane-splitter .handle {
       width: 100%;
       height: 35px;
       background-color: #eee;
-      position: relative;
+      position: absolute;
       top: calc(50% - 17px);
     }
   `],

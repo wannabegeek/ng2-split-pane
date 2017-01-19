@@ -5,24 +5,23 @@ import { PositionService } from './position.service'
 @Component({
   selector: 'horizontal-split-pane',
   styles: [`
-    .outer {
+    .h-outer {
       height: 100%;
       width: 100%;
-      position: releative;
+      display: flex;
+      flex-flow: column;
     }
 
     .upper-component {
       height: calc(50% - 4px);
-      position: relative;
     }
 
     .lower-component {
       height: calc(50% - 4px);
-      position: relative;
     }
   `],
   template: `
-  <div #outer class="outer">
+  <div #outer class="h-outer">
     <div #primaryComponent class="upper-component">
       <ng-content select=".split-pane-content-primary"></ng-content>
     </div>
@@ -32,11 +31,11 @@ import { PositionService } from './position.service'
     </div>
   </div>
   `,
-  host: {'style': 'height: 100%'}
 })
 export class HorizontalSplitPaneComponent extends SplitPaneComponent {
 
   @ViewChild('outer') protected outerContainer: ElementRef;
+  @Input() test: number;
 
   protected getTotalSize(): number {
     return this.outerContainer.nativeElement.offsetHeight;

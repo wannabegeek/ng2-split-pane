@@ -6,7 +6,6 @@ import { SplitSeparatorComponent } from './split-pane-separator.component'
   styles: [`
     .pane-splitter {
       height: 7px;
-      width: 100%;
       background-color: #fff;
       border-top: 1px solid #ddd;
       cursor: ns-resize;
