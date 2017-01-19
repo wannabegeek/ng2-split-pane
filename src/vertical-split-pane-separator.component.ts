@@ -6,7 +6,6 @@ import { SplitSeparatorComponent } from './split-pane-separator.component'
   styles: [`
     :host {
       width: 7px;
-      height: 100%;
       background-color: #fff;
       border-left: 1px solid #ddd;
       cursor: ew-resize;

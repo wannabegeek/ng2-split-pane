@@ -1,7 +1,10 @@
 # ng2-split-pane
+
+[![npm version](https://badge.fury.io/js/ng2-split-pane.svg)](https://www.npmjs.com/package/ng2-split-panehttps://badge.fury.io/js/ng2-split-pane.sv://plnkr.co/bxgcK29PNl9lexw6z6Ym)
+
 Split View module for Angular 2
 
-See an example on [plnkr here](https://plnkr.co/edit/5oofK8DBHwkjh2D7sqsg?p=preview)
+See an example on [plnkr here](https://plnkr.co/bxgcK29PNl9lexw6z6Ym)
 
 I should be pretty easy to use (hopefully), you can ether have a `horizontal-split-pane` or a `vertical-split-pane`
 
