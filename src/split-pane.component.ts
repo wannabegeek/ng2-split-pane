@@ -9,6 +9,7 @@ export abstract class SplitPaneComponent {
   @ViewChild('primaryComponent') protected primaryComponent: ElementRef;
   @ViewChild('secondaryComponent') protected secondaryComponent: ElementRef;
 
+  @Input('primary-component-initialratio') protected initialRatio: number = 0.5;
   @Input('primary-component-minsize') protected primaryMinSize: number = 0;
   @Input('secondary-component-minsize') protected secondaryMinSize: number = 0;
   @Input('local-storage-key') private localStorageKey: string = null;
@@ -18,14 +19,15 @@ export abstract class SplitPaneComponent {
   protected isResizing: boolean = false;
 
   ngAfterViewInit() {
+    let ratio: number = this.initialRatio;
     if (this.localStorageKey != null) {
       let ratioStr = localStorage.getItem(this.localStorageKey);
       if (ratioStr != null) {
-        let ratio: number = JSON.parse(ratioStr);
-        let size = ratio * this.getTotalSize();
-        this.applySizeChange(size);
+        ratio = JSON.parse(ratioStr);
       }
     }
+    let size = ratio * this.getTotalSize();
+    this.applySizeChange(size);
   }
 
   protected abstract getTotalSize(): number;
