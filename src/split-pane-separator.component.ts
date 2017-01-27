@@ -14,5 +14,6 @@ export class SplitSeparatorComponent implements OnInit {
   @HostListener('mousedown', ['$event'])
   onMousedown(event) {
     this.notifyWillChangeSize.emit(true);
+    return false;
   }
 }
