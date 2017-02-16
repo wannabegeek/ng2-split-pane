@@ -14,6 +14,8 @@ export abstract class SplitPaneComponent {
   @Input('secondary-component-minsize') protected secondaryMinSize: number = 0;
   @Input('local-storage-key') private localStorageKey: string = null;
   @Output('on-change') private notifySizeDidChange: EventEmitter<any> = new EventEmitter<any>();
+  @Output('on-begin-resizing') private notifyBeginResizing: EventEmitter<any> = new EventEmitter<any>();
+  @Output('on-ended-resizing') private notifyEndedResizing: EventEmitter<any> = new EventEmitter<any>();
 
   private dividerSize: number = 8.0;
   protected isResizing: boolean = false;
@@ -55,6 +57,7 @@ export abstract class SplitPaneComponent {
 
   private notifyWillChangeSize(resizing: boolean) {
     this.isResizing = resizing;
+    this.notifyBeginResizing.emit();
   }
 
   private checkValidBounds(newSize: number, minSize: number, maxSize: number): number {
@@ -74,6 +77,8 @@ export abstract class SplitPaneComponent {
       let ratio = this.getPrimarySize() / (this.getTotalSize());
       localStorage.setItem(this.localStorageKey, JSON.stringify(ratio));
     }
+
+    this.notifyEndedResizing.emit();
   }
 
   @HostListener('mouseup', ['$event'])
