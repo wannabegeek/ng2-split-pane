@@ -14,8 +14,9 @@ These can take 3 optional configuration values;
 |---------------------------------|-----------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
 |`primary-component-minsize`      | value in pixels                                           | Only allow the primary pane (either top or left) to go as small as this                                  |
 |`secondary-component-minsize`    | value in pixels                                           | Only allow the secondary pane (either bottom or right) to go as small as this                            |
-|`primary-component-initialratio` | initial value in a ratio of primary/secondary (range 0-1) | The initial size to create the primary pane (secondary will fill the remaining), this value will be over-ridden if a value is found in the local storage.
+|`primary-component-initialratio` | initial value in a ratio of primary/secondary (range 0-1) | The initial size to create the primary pane (secondary will fill the remaining), this value will be over-ridden if a value is found in the local storage. |
 |`local-storage-key`              | string value used as the key                              | If this value is present, uses this key withing localstorage to remember the position of the divider bar |
+
 
 ```javascript
 <horizontal-split-pane primary-component-minsize="50" secondary-component-minsize="100" local-storage-key="split-pane" primary-component-initialratio="0.8">
