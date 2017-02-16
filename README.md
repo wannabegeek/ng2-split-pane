@@ -32,3 +32,11 @@ These can take 3 optional configuration values;
 </horizontal-split-pane>
 
 ```
+
+## Events
+
+`(on-change)` - emitted when a change in the size of the component happens
+
+`(on-begin-resizing)` - emitted when the user begins dragging the separator
+
+`(on-ended-resizing)` - emitted when the user releases the separator after dragging
