@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "lib": ["es6", "es2015", "dom"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "removeComments": true,
+    "sourceMap": true,
+    "outDir": "./lib",
+    "declaration": true
+  },
+  "files": [
+    // "typings/index.d.ts",
+    "src/horizontal-split-pane-separator.component.ts",
+    "src/vertical-split-pane-separator.component.ts",
+    "src/horizontal-split-pane.component.ts",
+    "src/vertical-split-pane.component.ts",
+    "src/ng2-split-pane.module.ts",
+    "src/index.ts"
+  ]
+}
