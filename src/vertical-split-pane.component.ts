@@ -21,11 +21,21 @@ import { PositionService } from './position.service'
   `],
   template: `
   <div #outer class="v-outer">
-    <div #primaryComponent class="left-component">
+    <div
+      #primaryComponent
+      [hidden]="primaryToggledOff"
+      class="left-component">
       <ng-content select=".split-pane-content-primary"></ng-content>
     </div>
-    <vertical-split-separator #separator (notifyWillChangeSize)="notifyWillChangeSize($event)"></vertical-split-separator>
-    <div #secondaryComponent class="right-component">
+    <vertical-split-separator
+      #separator
+      [hidden]="primaryToggledOff || secondaryToggledOff"
+      (notifyWillChangeSize)="notifyWillChangeSize($event)">
+    </vertical-split-separator>
+    <div
+      #secondaryComponent
+      [hidden]="secondaryToggledOff"
+      class="right-component">
       <ng-content select=".split-pane-content-secondary"></ng-content>
     </div>
   </div>
