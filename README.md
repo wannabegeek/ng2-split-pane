@@ -14,6 +14,7 @@ Key | Range | Does
 --- | --- | ---
 `primary-component-minsize` | value in pixels | Only allow the primary pane (either top or left) to go as small as this
 `secondary-component-minsize` | value in pixels | Only allow the secondary pane (either bottom or right) to go as small as this
+`separator-thickness` | value in pixels (7 by default) | The thickness of the separator between the primary and secondary components
 `primary-component-toggled-off` | boolean `true` or `false` (false by default) | Hide the primary component and the separator
 `secondary-component-toggled-off` | boolean `true` or `false` (false by default) | Hide the secondary component and the separator
 `secondary-component-minsize` | value in pixels | Only allow the secondary pane (either bottom or right) to go as small as this
