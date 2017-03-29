@@ -5,27 +5,28 @@ import {
 
 @Component({
   selector: 'split-pane',
+  template: '',
   host: {'style': 'height: 100%'}
 })
-export abstract class SplitPaneComponent implements OnChanges {
+export class SplitPaneComponent implements OnChanges {
 
-  @ViewChild('primaryComponent') protected primaryComponent: ElementRef;
-  @ViewChild('secondaryComponent') protected secondaryComponent: ElementRef;
+  @ViewChild('primaryComponent') primaryComponent: ElementRef;
+  @ViewChild('secondaryComponent') secondaryComponent: ElementRef;
 
-  @Input('primary-component-initialratio') protected initialRatio: number = 0.5;
-  @Input('primary-component-minsize') protected primaryMinSize: number = 0;
-  @Input('secondary-component-minsize') protected secondaryMinSize: number = 0;
-  @Input('separator-thickness') protected separatorThickness: number = 7;
-  @Input('primary-component-toggled-off') protected primaryToggledOff: boolean = false;
-  @Input('secondary-component-toggled-off') protected secondaryToggledOff: boolean = false;
-  @Input('local-storage-key') private localStorageKey: string = null;
-  @Output('on-change') private notifySizeDidChange: EventEmitter<any> = new EventEmitter<any>();
-  @Output('on-begin-resizing') private notifyBeginResizing: EventEmitter<any> = new EventEmitter<any>();
-  @Output('on-ended-resizing') private notifyEndedResizing: EventEmitter<any> = new EventEmitter<any>();
+  @Input('primary-component-initialratio') initialRatio: number = 0.5;
+  @Input('primary-component-minsize') primaryMinSize: number = 0;
+  @Input('secondary-component-minsize') secondaryMinSize: number = 0;
+  @Input('separator-thickness') separatorThickness: number = 7;
+  @Input('primary-component-toggled-off') primaryToggledOff: boolean = false;
+  @Input('secondary-component-toggled-off') secondaryToggledOff: boolean = false;
+  @Input('local-storage-key') localStorageKey: string = null;
+  @Output('on-change') notifySizeDidChange: EventEmitter<any> = new EventEmitter<any>();
+  @Output('on-begin-resizing') notifyBeginResizing: EventEmitter<any> = new EventEmitter<any>();
+  @Output('on-ended-resizing') notifyEndedResizing: EventEmitter<any> = new EventEmitter<any>();
 
-  private primarySizeBeforeTogglingOff: number;
-  private dividerSize: number = 8.0;
-  protected isResizing: boolean = false;
+  primarySizeBeforeTogglingOff: number;
+  dividerSize: number = 8.0;
+  isResizing: boolean = false;
 
   ngAfterViewInit() {
     this.checkBothToggledOff();
@@ -64,16 +65,27 @@ export abstract class SplitPaneComponent implements OnChanges {
     }
   }
 
-  protected abstract getTotalSize(): number;
-  protected abstract getPrimarySize(): number;
-  protected abstract getSecondarySize(): number;
-  protected abstract dividerPosition(size: number);
+  getTotalSize(): number {
+    throw("SplitPaneComponent shouldn't be instantiated. Override this method.")
+  }
 
-  protected getAvailableSize(): number {
+  getPrimarySize(): number {
+    throw("SplitPaneComponent shouldn't be instantiated. Override this method.")
+  }
+
+  getSecondarySize(): number {
+    throw("SplitPaneComponent shouldn't be instantiated. Override this method.")
+  }
+
+  dividerPosition(size: number) : void {
+    throw("SplitPaneComponent shouldn't be instantiated. Override this method.")
+  }
+
+  getAvailableSize(): number {
     return this.getTotalSize() - this.dividerSize;
   }
 
-  protected applySizeChange(size: number) {
+  applySizeChange(size: number) {
     let primarySize = this.checkValidBounds(
       size, this.primaryMinSize,
       this.getAvailableSize() - this.secondaryMinSize);
@@ -88,20 +100,20 @@ export abstract class SplitPaneComponent implements OnChanges {
     this.notifySizeDidChange.emit({'primary' : this.getPrimarySize(), 'secondary' : this.getSecondarySize()});
   }
 
-  private notifyWillChangeSize(resizing: boolean) {
+  notifyWillChangeSize(resizing: boolean) {
     this.isResizing = resizing;
     this.notifyBeginResizing.emit();
   }
 
-  private checkValidBounds(newSize: number, minSize: number, maxSize: number): number {
-    return newSize >= minSize 
-            ? (newSize <= maxSize) 
-                ? newSize 
-                : maxSize 
+  checkValidBounds(newSize: number, minSize: number, maxSize: number): number {
+    return newSize >= minSize
+            ? (newSize <= maxSize)
+                ? newSize
+                : maxSize
             : minSize;
   }
 
-  private checkBothToggledOff() {
+  checkBothToggledOff() {
     // We do not allow both the primary and secondary content to be toggled off
     // at the same time, because then it would be very confusing.
     if (this.primaryToggledOff && this.secondaryToggledOff) {
@@ -109,7 +121,7 @@ export abstract class SplitPaneComponent implements OnChanges {
     }
   }
 
-  private stopResizing() {
+  stopResizing() {
     this.isResizing = false;
     this.primaryComponent.nativeElement.style.cursor = "auto";
     this.secondaryComponent.nativeElement.style.cursor = "auto";

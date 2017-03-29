@@ -44,21 +44,21 @@ import { PositionService } from './position.service'
 })
 export class VerticalSplitPaneComponent extends SplitPaneComponent {
 
-  @ViewChild('outer') protected outerContainer: ElementRef;
+  @ViewChild('outer') outerContainer: ElementRef;
 
-  protected getTotalSize(): number {
+  getTotalSize(): number {
     return this.outerContainer.nativeElement.offsetWidth;
   }
 
-  protected getPrimarySize(): number {
+  getPrimarySize(): number {
     return this.primaryComponent.nativeElement.offsetWidth;
   }
 
-  protected getSecondarySize(): number {
+  getSecondarySize(): number {
     return this.secondaryComponent.nativeElement.offsetWidth;
   }
 
-  protected dividerPosition(size: number) {
+  dividerPosition(size: number) {
     const sizePct = (size / this.getTotalSize()) * 100;
     this.primaryComponent.nativeElement.style.width = sizePct + "%";
     this.secondaryComponent.nativeElement.style.width =

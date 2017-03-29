@@ -45,22 +45,22 @@ import { PositionService } from './position.service'
 })
 export class HorizontalSplitPaneComponent extends SplitPaneComponent {
 
-  @ViewChild('outer') protected outerContainer: ElementRef;
+  @ViewChild('outer') outerContainer: ElementRef;
   @Input() test: number;
 
-  protected getTotalSize(): number {
+  getTotalSize(): number {
     return this.outerContainer.nativeElement.offsetHeight;
   }
 
-  protected getPrimarySize(): number {
+  getPrimarySize(): number {
     return this.primaryComponent.nativeElement.offsetHeight;
   }
 
-  protected getSecondarySize(): number {
+  getSecondarySize(): number {
     return this.secondaryComponent.nativeElement.offsetHeight;
   }
 
-  protected dividerPosition(size: number) {
+  dividerPosition(size: number) {
     const sizePct = (size / this.getTotalSize()) * 100.0;
     this.primaryComponent.nativeElement.style.height = sizePct + "%";
     this.secondaryComponent.nativeElement.style.height =

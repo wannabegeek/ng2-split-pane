@@ -1,13 +1,14 @@
 import { Component, OnInit, HostListener, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
+  template: ''
 })
 export class SplitSeparatorComponent implements OnInit {
 
-  @Input() protected thickness: number;
-  @Output() private notifyWillChangeSize: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Input() thickness: number;
+  @Output() notifyWillChangeSize: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  @ViewChild('invisibleExtension') protected invisibleExtension: ElementRef;
+  @ViewChild('invisibleExtension') invisibleExtension: ElementRef;
 
   constructor() { }
 
