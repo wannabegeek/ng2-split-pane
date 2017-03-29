@@ -5,6 +5,8 @@ import { HorizontalSplitSeparatorComponent } from './horizontal-split-pane-separ
 import { VerticalSplitSeparatorComponent } from './vertical-split-pane-separator.component';
 import { HorizontalSplitPaneComponent } from './horizontal-split-pane.component';
 import { VerticalSplitPaneComponent } from './vertical-split-pane.component';
+import { SplitSeparatorComponent } from "./split-pane-separator.component";
+import { SplitPaneComponent } from "./split-pane.component";
 
 @NgModule({
   imports: [CommonModule],
@@ -12,7 +14,9 @@ import { VerticalSplitPaneComponent } from './vertical-split-pane.component';
     HorizontalSplitPaneComponent,
     VerticalSplitPaneComponent,
     HorizontalSplitSeparatorComponent,
-    VerticalSplitSeparatorComponent
+    VerticalSplitSeparatorComponent,
+    SplitSeparatorComponent,
+    SplitPaneComponent
   ],
   exports: [HorizontalSplitPaneComponent, VerticalSplitPaneComponent]
 })
