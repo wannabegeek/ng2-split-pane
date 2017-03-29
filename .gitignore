@@ -1,0 +1,6 @@
+*.tgz
+.vscode
+node_modules
+lib
+*ngfactory.ts
+*.ngsummary.json

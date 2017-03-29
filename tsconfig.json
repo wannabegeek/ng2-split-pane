@@ -8,7 +8,18 @@
     "moduleResolution": "node",
     "removeComments": true,
     "sourceMap": true,
-    "outDir": "../lib",
+    "outDir": "lib",
     "declaration": true
+  },
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ],
+  "include": [
+    "src/*",
+    "src/**/*"
+  ],
+  "angularCompilerOptions": {
+    "genDir": "compiled"
   }
 }
