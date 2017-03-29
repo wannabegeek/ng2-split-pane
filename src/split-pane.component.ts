@@ -15,6 +15,7 @@ export abstract class SplitPaneComponent implements OnChanges {
   @Input('primary-component-initialratio') protected initialRatio: number = 0.5;
   @Input('primary-component-minsize') protected primaryMinSize: number = 0;
   @Input('secondary-component-minsize') protected secondaryMinSize: number = 0;
+  @Input('separator-thickness') protected separatorThickness: number = 7;
   @Input('primary-component-toggled-off') protected primaryToggledOff: boolean = false;
   @Input('secondary-component-toggled-off') protected secondaryToggledOff: boolean = false;
   @Input('local-storage-key') private localStorageKey: string = null;

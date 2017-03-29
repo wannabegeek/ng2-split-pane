@@ -30,6 +30,7 @@ import { PositionService } from './position.service'
     <vertical-split-separator
       #separator
       [hidden]="primaryToggledOff || secondaryToggledOff"
+      [thickness]="separatorThickness"
       (notifyWillChangeSize)="notifyWillChangeSize($event)">
     </vertical-split-separator>
     <div
@@ -60,7 +61,8 @@ export class VerticalSplitPaneComponent extends SplitPaneComponent {
   protected dividerPosition(size: number) {
     const sizePct = (size / this.getTotalSize()) * 100;
     this.primaryComponent.nativeElement.style.width = sizePct + "%";
-    this.secondaryComponent.nativeElement.style.width = "calc(" + (100 - sizePct) + "% - 8px)";
+    this.secondaryComponent.nativeElement.style.width =
+      "calc(" + (100 - sizePct) + "% - " + this.separatorThickness + "px)";
   }
 
   @HostListener('mousemove', ['$event'])

@@ -31,6 +31,7 @@ import { PositionService } from './position.service'
     <horizontal-split-separator
       #separator
       [hidden]="primaryToggledOff || secondaryToggledOff"
+      [thickness]="separatorThickness"
       (notifyWillChangeSize)="notifyWillChangeSize($event)">
     </horizontal-split-separator>
     <div
@@ -62,7 +63,8 @@ export class HorizontalSplitPaneComponent extends SplitPaneComponent {
   protected dividerPosition(size: number) {
     const sizePct = (size / this.getTotalSize()) * 100.0;
     this.primaryComponent.nativeElement.style.height = sizePct + "%";
-    this.secondaryComponent.nativeElement.style.height = "calc(" + (100 - sizePct) + "% - 8px)";
+    this.secondaryComponent.nativeElement.style.height =
+      "calc(" + (100 - sizePct) + "% - " + this.separatorThickness + "px)";
   }
 
   @HostListener('mousemove', ['$event'])
