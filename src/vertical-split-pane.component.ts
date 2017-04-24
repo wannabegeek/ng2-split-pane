@@ -69,6 +69,5 @@ export class VerticalSplitPaneComponent extends SplitPaneComponent {
         let coords = PositionService.offset(this.primaryComponent);
         this.applySizeChange(event.pageX - coords.left);
       }
-      return false;
     }
 }

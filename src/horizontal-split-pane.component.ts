@@ -71,6 +71,5 @@ export class HorizontalSplitPaneComponent extends SplitPaneComponent {
         let coords = PositionService.offset(this.primaryComponent);
         this.applySizeChange(event.pageY - coords.top);
       }
-      return false;
     }
 }
