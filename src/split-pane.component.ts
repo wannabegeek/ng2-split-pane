@@ -136,7 +136,9 @@ export class SplitPaneComponent implements OnChanges {
 
   @HostListener('mouseup', ['$event'])
   onMouseup(event) {
-    this.stopResizing()
-    return false;
+    if (this.isResizing) {
+      this.stopResizing()
+      return false;
+    }
   }
 }
