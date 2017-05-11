@@ -46,6 +46,22 @@ Key | Range | Does
 </horizontal-split-pane>
 
 ```
+**Import **
+```typescript
+// Pleas note the module is no in the root
+import { SplitPaneModule } from 'ng2-split-pane/lib/ng2-split-pane';
+
+@NgModule({
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        SplitPaneModule
+    ],
+    bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
 
 
 ## Events
