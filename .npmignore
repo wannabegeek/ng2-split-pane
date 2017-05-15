@@ -3,6 +3,7 @@
 node_modules/*
 compiled/
 .vscode/
+src/
 npm-debug.log
 
 *.tgz
