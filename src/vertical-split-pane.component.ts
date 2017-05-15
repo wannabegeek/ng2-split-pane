@@ -63,7 +63,7 @@ export class VerticalSplitPaneComponent extends SplitPaneComponent {
     this.primaryComponent.nativeElement.style.width = sizePct + "%";
     this.secondaryComponent.nativeElement.style.width =
       "calc(" + (100 - sizePct) + "% - " + 
-      (primaryToggledOff || secondaryToggledOff ? 0 : this.separatorThickness) + "px)";
+      (this.primaryToggledOff || this.secondaryToggledOff ? 0 : this.separatorThickness) + "px)";
   }
 
   @HostListener('mousemove', ['$event'])
