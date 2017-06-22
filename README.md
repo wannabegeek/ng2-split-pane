@@ -8,6 +8,16 @@ See an example on [plnkr here](https://plnkr.co/bxgcK29PNl9lexw6z6Ym)
 
 I should be pretty easy to use (hopefully), you can ether have a `horizontal-split-pane` or a `vertical-split-pane`
 
+## Install
+-------
+You can either [download](https://github.com/wannabegeek/ng2-split-pane/archive/master.zip)
+the whole project or install it via NPM:
+
+```bash
+$ npm install ng2-split-pane
+```
+-------
+
 These can take 3 optional configuration values;
 
 Key | Range | Does
