@@ -64,7 +64,8 @@ export class HorizontalSplitPaneComponent extends SplitPaneComponent {
     const sizePct = (size / this.getTotalSize()) * 100.0;
     this.primaryComponent.nativeElement.style.height = sizePct + "%";
     this.secondaryComponent.nativeElement.style.height =
-      "calc(" + (100 - sizePct) + "% - " + this.separatorThickness + "px)";
+      "calc(" + (100 - sizePct) + "% - " + 
+      (this.primaryToggledOff || this.secondaryToggledOff ? 0 : this.separatorThickness) + "px)";
   }
 
   @HostListener('mousemove', ['$event'])
