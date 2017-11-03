@@ -36,7 +36,7 @@ Key | Range | Does
 <horizontal-split-pane
     primary-component-minsize="50"
     secondary-component-minsize="100"
-    primary-component-toggled-off="false"
+    [primary-component-toggled-off]="false"
     [secondary-component-toggled-off]="someCondition"
     local-storage-key="split-pane"
     primary-component-initialratio="0.8">
@@ -56,7 +56,7 @@ Key | Range | Does
 </horizontal-split-pane>
 
 ```
-**Import **
+**Import**
 ```typescript
 // Pleas note the module is no in the root
 import { SplitPaneModule } from 'ng2-split-pane/lib/ng2-split-pane';
