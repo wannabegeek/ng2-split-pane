@@ -9,7 +9,11 @@ import { PositionService } from './position.service'
       height: 100%;
       width: 100%;
       display: flex;
+	  display: -webkit-box;
+	  display: -ms-flexbox;
       flex-flow: column;
+	  -webkit-flex-flow: column wrap;
+	  -ms-flex-flow: column wrap;
     }
 
     .upper-component {

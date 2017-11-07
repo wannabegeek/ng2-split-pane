@@ -9,6 +9,8 @@ import { PositionService } from './position.service'
       height: 100%;
       width: 100%;
       display: flex;
+	  display: -webkit-box;
+	  display: -ms-flexbox;
     }
 
     .left-component {
