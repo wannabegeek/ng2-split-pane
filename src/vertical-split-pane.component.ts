@@ -32,6 +32,9 @@ import { PositionService } from './position.service'
       [hidden]="primaryToggledOff || secondaryToggledOff"
       [thickness]="separatorThickness"
       (notifyWillChangeSize)="notifyWillChangeSize($event)">
+      <div class="split-pane-content-separator">
+        <ng-content select=".split-pane-content-separator"></ng-content>
+      </div>
     </vertical-split-separator>
     <div
       #secondaryComponent
