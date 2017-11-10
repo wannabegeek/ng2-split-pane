@@ -30,18 +30,18 @@ export class SplitPaneComponent implements OnChanges {
 
   ngAfterViewInit() {
     this.checkBothToggledOff();
-
-    if (!this.primaryToggledOff && !this.secondaryToggledOff) {
-      let ratio: number = this.initialRatio;
-      if (this.localStorageKey != null) {
-        let ratioStr = localStorage.getItem(this.localStorageKey);
-        if (ratioStr != null) {
-          ratio = JSON.parse(ratioStr);
-        }
+    let ratio: number = this.initialRatio;
+    if (this.localStorageKey != null) {
+      let ratioStr = localStorage.getItem(this.localStorageKey);
+      if (ratioStr != null) {
+        ratio = JSON.parse(ratioStr);
       }
-
-      let size = ratio * this.getTotalSize();
+    }
+    let size = ratio * this.getTotalSize();
+    if (!this.primaryToggledOff && !this.secondaryToggledOff) {
       this.applySizeChange(size);
+    } else {
+      this.primarySizeBeforeTogglingOff = size;
     }
   }
 
