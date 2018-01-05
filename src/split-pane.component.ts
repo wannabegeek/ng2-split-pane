@@ -135,6 +135,7 @@ export class SplitPaneComponent implements OnChanges {
   }
 
   @HostListener('mouseup', ['$event'])
+  @HostListener('touchend', ['$event'])
   onMouseup(event) {
     if (this.isResizing) {
       this.stopResizing()
