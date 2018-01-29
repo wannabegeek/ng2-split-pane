@@ -32,7 +32,7 @@ Key | Range | Does
 `local-storage-key` | string value used as the key  | If this value is present, uses this key withing localstorage to remember the position of the divider bar
 
 
-```javascript
+```html
 <horizontal-split-pane
     primary-component-minsize="50"
     secondary-component-minsize="100"
