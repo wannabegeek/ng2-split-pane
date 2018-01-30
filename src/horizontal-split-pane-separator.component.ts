@@ -5,12 +5,15 @@ import { SplitSeparatorComponent } from './split-pane-separator.component'
   selector: 'horizontal-split-separator',
   styles: [`
     :host {
+      cursor: ns-resize;
+    }
+
+    .default-separator {
       background-color: #fff;
       border-top: 1px solid #ddd;
-      cursor: ns-resize;
       position: relative;
     }
-    :host:hover {
+    .default-separator:hover {
       background-color: #fafafa;
     }
 
@@ -29,14 +32,19 @@ import { SplitSeparatorComponent } from './split-pane-separator.component'
     }
   `],
   template: `
-    <!-- Used to extend the 'draggable' area in case the separator is too thin,
-    so it's not too hard to drag. -->
-    <div
-      #invisibleExtension
-      [hidden]="thickness >= 7"
-      class="invisible-extension"></div>
+    <div class="custom-template" #ref>
+      <ng-content select=".split-pane-content-separator"></ng-content>
+    </div>
+    <div class="default-separator" *ngIf="ref.children.length == 0">
+      <!-- Used to extend the 'draggable' area in case the separator is too thin,
+        so it's not too hard to drag. -->
+      <div
+        #invisibleExtension
+        [hidden]="thickness >= 7"
+        class="invisible-extension"></div>
 
-    <div class="handle"></div>
+      <div class="handle"></div>
+    </div>
   `,
   host: {
     '[style.height.px]': 'thickness'
@@ -47,8 +55,10 @@ export class HorizontalSplitSeparatorComponent
   implements OnInit {
 
   ngAfterViewInit() {
-    this.invisibleExtension.nativeElement.style.top =
-      -(7 - this.thickness) / 2 + "px";
+    if (this.invisibleExtension) {
+      this.invisibleExtension.nativeElement.style.top =
+        -(7 - this.thickness) / 2 + "px";
+    }
   }
 
 }
