@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wannabegeek/ng2-split-pane.git"
+    "url": "git+https://github.com/Grit-Virtual/ng2-split-pane.git"
   },
   "keywords": [
     "Angular",
@@ -32,7 +32,7 @@
   "homepage": "https://github.com/wannabegeek/ng2-split-pane/#readme",
   "dependencies": {},
   "devDependencies": {
-    "typescript": "^2.2.2",
+    "typescript": "2.2.2",
     "@angular/animations": "^4.0.1",
     "@angular/common": "^4.0.1",
     "@angular/compiler": "^4.0.1",
