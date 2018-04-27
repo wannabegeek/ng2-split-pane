@@ -76,4 +76,14 @@ export class HorizontalSplitPaneComponent extends SplitPaneComponent {
         return false;
       }
     }
+
+  @HostListener('touchmove', ['$event'])
+    onTouchmove(event: TouchEvent) {
+        if (this.isResizing) {
+          let coords = PositionService.offset(this.primaryComponent);
+          this.applySizeChange(event.changedTouches[0].pageY - coords.top);
+          return false;
+        }
+      }
+      
 }

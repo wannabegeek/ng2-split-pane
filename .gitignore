@@ -1,7 +1,7 @@
 *.tgz
 .vscode
 node_modules
-lib
+compiled
 *ngfactory.ts
 *.ngsummary.json
 
