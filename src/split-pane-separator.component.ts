@@ -20,4 +20,9 @@ export class SplitSeparatorComponent implements OnInit {
     this.notifyWillChangeSize.emit(true);
     return false;
   }
+  @HostListener('touchstart', ['$event'])
+  ontouchstart(event) {
+    this.notifyWillChangeSize.emit(true);
+    return false;
+  }
 }

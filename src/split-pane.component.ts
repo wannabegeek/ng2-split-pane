@@ -142,4 +142,10 @@ export class SplitPaneComponent implements OnChanges {
       return false;
     }
   }
+  ontouchend(event) {
+    if (this.isResizing) {
+      this.stopResizing()
+      return false;
+    }
+  }
 }

@@ -30,7 +30,9 @@
     "url": "https://github.com/wannabegeek/ng2-split-pane/issues"
   },
   "homepage": "https://github.com/wannabegeek/ng2-split-pane/#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@types/node": "^9.6.7"
+  },
   "devDependencies": {
     "typescript": "^2.2.2",
     "@angular/animations": "^4.0.1",
