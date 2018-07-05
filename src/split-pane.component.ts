@@ -97,7 +97,9 @@ export class SplitPaneComponent implements OnChanges {
     }
 
     this.dividerPosition(primarySize);
-    this.notifySizeDidChange.emit({'primary' : this.getPrimarySize(), 'secondary' : this.getSecondarySize()});
+    Promise.resolve().then(() => {
+        this.notifySizeDidChange.emit({'primary' : this.getPrimarySize(), 'secondary' : this.getSecondarySize()});
+    })
   }
 
   notifyWillChangeSize(resizing: boolean) {
