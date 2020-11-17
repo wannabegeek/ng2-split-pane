@@ -2,14 +2,18 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
-    "lib": ["es6", "es2015", "dom"],
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "target": "es2015",
+    "module": "es2015",
+    "lib": [
+        "dom",
+        "es2015"
+    ],
+    "moduleResolution": "node", 
     "removeComments": true,
     "sourceMap": true,
     "outDir": "lib",
-    "declaration": true
+    "declaration": true,
+    "importHelpers": true,
   },
   "exclude": [
     "node_modules",
@@ -20,6 +24,11 @@
     "src/**/*"
   ],
   "angularCompilerOptions": {
-    "genDir": "compiled"
+    "enableResourceInlining": true,
+    "enableIvy": false,
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": false,
+    "fullTemplateTypeCheck": false,
+    "strictInjectionParameters": true
   }
 }
