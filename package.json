@@ -1,8 +1,8 @@
 {
   "name": "ng2-split-pane-patch",
-  "version": "10.0.2",
+  "version": "10.0.4",
   "description": "A simple resizable split pane Angular 2 library",
-  "main": "lib/ng2-split-pane.js",
+  "main": "lib/public_api.ts",
   "scripts": {
     "clean": "rm -rf lib compiled",
     "watch": "tsc -p src -w",
@@ -32,15 +32,15 @@
   "homepage": "https://github.com/wannabegeek/ng2-split-pane/#readme",
   "dependencies": {},
   "devDependencies": {
-    "typescript": "^3.7.5",
-    "@angular/animations": "^9.0.1",
-    "@angular/compiler": "^9.0.1",
-    "@angular/compiler-cli": "^9.0.1",
-    "@angular/core": "^9.0.1",
-    "@angular/forms": "^9.0.1",
-    "@angular/platform-browser": "^9.0.1",
-    "@angular/platform-browser-dynamic": "^9.0.1",
-    "@angular/platform-server": "^9.0.1",
+    "typescript": "4.0.5",
+    "@angular/animations": "^10.2.3",
+    "@angular/compiler": "^10.2.3",
+    "@angular/compiler-cli": "^10.2.3",
+    "@angular/core": "^10.2.3",
+    "@angular/forms": "^10.2.3",
+    "@angular/platform-browser": "^10.2.3",
+    "@angular/platform-browser-dynamic": "^10.2.3",
+    "@angular/platform-server": "^10.2.3",
     "rxjs": "^6.5.4",
     "zone.js": "^0.10.2"
   }
