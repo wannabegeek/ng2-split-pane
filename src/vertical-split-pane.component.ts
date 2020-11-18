@@ -3,8 +3,8 @@ import { SplitPaneComponent } from './split-pane.component'
 import { PositionService } from './position.service'
 
 @Component({
-  selector: 'vertical-split-pane',
-  styles: [`
+    selector: 'vertical-split-pane',
+    styles: [`
     .v-outer {
       height: 100%;
       width: 100%;
@@ -19,7 +19,7 @@ import { PositionService } from './position.service'
       width: calc(50% - 4px);
     }
   `],
-  template: `
+    template: `
   <div #outer class="v-outer">
     <div
       #primaryComponent
@@ -44,34 +44,34 @@ import { PositionService } from './position.service'
 })
 export class VerticalSplitPaneComponent extends SplitPaneComponent {
 
-  @ViewChild('outer') outerContainer: ElementRef;
+    @ViewChild('outer', { static: true }) outerContainer: ElementRef;
 
-  getTotalSize(): number {
-    return this.outerContainer.nativeElement.offsetWidth;
-  }
+    getTotalSize(): number {
+        return this.outerContainer.nativeElement.offsetWidth;
+    }
 
-  getPrimarySize(): number {
-    return this.primaryComponent.nativeElement.offsetWidth;
-  }
+    getPrimarySize(): number {
+        return this.primaryComponent.nativeElement.offsetWidth;
+    }
 
-  getSecondarySize(): number {
-    return this.secondaryComponent.nativeElement.offsetWidth;
-  }
+    getSecondarySize(): number {
+        return this.secondaryComponent.nativeElement.offsetWidth;
+    }
 
-  dividerPosition(size: number) {
-    const sizePct = (size / this.getTotalSize()) * 100;
-    this.primaryComponent.nativeElement.style.width = sizePct + "%";
-    this.secondaryComponent.nativeElement.style.width =
-      "calc(" + (100 - sizePct) + "% - " + 
-      (this.primaryToggledOff || this.secondaryToggledOff ? 0 : this.separatorThickness) + "px)";
-  }
+    dividerPosition(size: number) {
+        const sizePct = (size / this.getTotalSize()) * 100;
+        this.primaryComponent.nativeElement.style.width = sizePct + "%";
+        this.secondaryComponent.nativeElement.style.width =
+            "calc(" + (100 - sizePct) + "% - " +
+            (this.primaryToggledOff || this.secondaryToggledOff ? 0 : this.separatorThickness) + "px)";
+    }
 
-  @HostListener('mousemove', ['$event'])
-  onMousemove(event: MouseEvent) {
-      if (this.isResizing) {
-        let coords = PositionService.offset(this.primaryComponent);
-        this.applySizeChange(event.pageX - coords.left);
-        return false;
-      }
+    @HostListener('mousemove', ['$event'])
+    onMousemove(event: MouseEvent) {
+        if (this.isResizing) {
+            let coords = PositionService.offset(this.primaryComponent);
+            this.applySizeChange(event.pageX - coords.left);
+            return false;
+        }
     }
 }
