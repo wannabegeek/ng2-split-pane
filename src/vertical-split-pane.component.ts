@@ -9,6 +9,8 @@ import { PositionService } from './position.service'
       height: 100%;
       width: 100%;
       display: flex;
+	  display: -webkit-box;
+	  display: -ms-flexbox;
     }
 
     .left-component {
@@ -32,6 +34,9 @@ import { PositionService } from './position.service'
       [hidden]="primaryToggledOff || secondaryToggledOff"
       [thickness]="separatorThickness"
       (notifyWillChangeSize)="notifyWillChangeSize($event)">
+      <div class="split-pane-content-separator">
+        <ng-content select=".split-pane-content-separator"></ng-content>
+      </div>
     </vertical-split-separator>
     <div
       #secondaryComponent

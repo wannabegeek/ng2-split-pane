@@ -47,6 +47,8 @@ Key | Range | Does
         </div>
     </div>
 
+	<div class="split-pane-content-separator"><i class="fa fa-arrows-h" aria-hidden="true"></i></div>
+
     <div class="split-pane-content-secondary">
         <div class="lower">
             Lower pane
